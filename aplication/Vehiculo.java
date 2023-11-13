@@ -6,10 +6,12 @@ import java.util.Map;
 abstract class Vehiculo {
     private String id;
     private String tipo;
+    private Ruta ruta;
 
-    public Vehiculo(String id, String tipo) {
+    public Vehiculo(String id, String tipo, Ruta ruta) {
         this.id = id;
         this.tipo = tipo;
+        this.ruta = ruta;
     }
 
     public String getId() {
@@ -21,4 +23,8 @@ abstract class Vehiculo {
     }
 
     public abstract void arrancar();
+
+    public void seguirRuta() {
+        ruta.seguirRuta();
+    }
 }

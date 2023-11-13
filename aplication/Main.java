@@ -9,9 +9,9 @@ public class Main {
         System.out.println("Bienvenido al sistema de vehículos");
         System.out.println();
 
-        System.out.println("Ingrese los vehículos (Tipo, ID) uno por uno (Ingrese 'q' para salir):");
+        // Adding vehicles
         while (true) {
-            System.out.print("Tipo de Vehículo (Autobús/Coche/Van): ");
+            System.out.print("Tipo de Vehículo (Autobús/Coche/Van) (Ingrese 'q' para salir): ");
             String tipoVehiculo = scanner.nextLine();
             if (tipoVehiculo.equalsIgnoreCase("q")) {
                 break;
@@ -26,9 +26,9 @@ public class Main {
             System.out.println();
         }
 
-        System.out.println("Ingrese los conductores (Nombre, Edad) uno por uno (Ingrese 'q' para salir):");
+        // Adding conductors with routes
         while (true) {
-            System.out.print("Nombre del Conductor: ");
+            System.out.print("Nombre del Conductor (Ingrese 'q' para salir): ");
             String nombreConductor = scanner.nextLine();
             if (nombreConductor.equalsIgnoreCase("q")) {
                 break;
@@ -38,11 +38,27 @@ public class Main {
             int edadConductor = scanner.nextInt();
             scanner.nextLine();
 
-            Conductor conductor = new Conductor(nombreConductor, edadConductor);
+            System.out.println("Seleccione la Ruta para el Conductor (1: RutaUrbana, 2: RutaInterurbana): ");
+            int opcionRuta = scanner.nextInt();
+            scanner.nextLine();
+
+            Ruta rutaConductor;
+            if (opcionRuta == 1) {
+                rutaConductor = new RutaUrbana();
+            } else if (opcionRuta == 2) {
+                rutaConductor = new RutaInterurbana();
+            } else {
+                System.out.println("Opción de ruta inválida. Se asignará RutaUrbana por defecto.");
+                rutaConductor = new RutaUrbana();
+            }
+
+            Conductor conductor = new Conductor(nombreConductor, edadConductor, rutaConductor);
             sistemaAutobuses.agregarConductor(conductor);
             System.out.println("Conductor agregado exitosamente");
             System.out.println();
         }
+
+        sistemaAutobuses.asignarRutas();
 
         System.out.println("Lista de Vehículos:");
         sistemaAutobuses.imprimirVehiculos();

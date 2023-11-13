@@ -31,8 +31,25 @@ class SistemaAutobuses {
     public void imprimirConductores() {
         System.out.println("Conductores:");
         for (Conductor conductor : conductores) {
-            System.out.println("Nombre: " + conductor.getNombre() + ", Edad: " + conductor.getEdad());
+            System.out.println("Nombre: " + conductor.getNombre() + ", Edad: " + conductor.getEdad() +
+                    ", Ruta: " + conductor.getRuta().getClass().getSimpleName());
+        }
+    }
+
+    public void asignarRutas() {
+        Ruta rutaUrbana = new RutaUrbana();
+        Ruta rutaInterurbana = new RutaInterurbana();
+
+        for (Vehiculo vehiculo : vehiculos) {
+            vehiculo.seguirRuta();
+        }
+
+        for (Conductor conductor : conductores) {
+            if (conductor.getEdad() < 25) {
+                conductor.seguirRuta();
+            }
         }
     }
 }
+
 

@@ -1,6 +1,6 @@
 class Coche extends Vehiculo {
-    public Coche(String id) {
-        super(id, "Coche");
+    public Coche(String id, Ruta ruta) {
+        super(id, "Coche", ruta);
     }
 
     @Override

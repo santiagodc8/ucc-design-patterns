@@ -1,0 +1,3 @@
+interface Ruta {
+    void seguirRuta();
+}

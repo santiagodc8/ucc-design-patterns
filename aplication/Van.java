@@ -1,6 +1,6 @@
 class Van extends Vehiculo {
-    public Van(String id) {
-        super(id, "Van");
+    public Van(String id, Ruta ruta) {
+        super(id, "Van", ruta);
     }
 
     @Override
