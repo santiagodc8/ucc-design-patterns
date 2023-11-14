@@ -1,17 +1,21 @@
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observer;
+import java.util.Random;
 import java.util.Scanner;
-
+// Clase principal del programa
 public class Main {
     public static void main(String[] args) {
-        SistemaAutobuses sistemaAutobuses = new SistemaAutobuses();
+        AbstractFactory fabrica = new FabricaVehiculos();
+        SistemaAutobuses sistemaAutobuses = new SistemaAutobuses(fabrica);
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bienvenido al sistema de vehículos");
         System.out.println();
 
-        // Adding vehicles
+        // Agregar vehículos
         while (true) {
-            System.out.print("Ingrese el tipo de Vehículo (Autobús/Coche/Van) (Ingrese 'q' para salir): ");
+            System.out.print("Tipo de Vehículo (Autobús/Coche/Van) (Ingrese 'q' para salir): ");
             String tipoVehiculo = scanner.nextLine();
             if (tipoVehiculo.equalsIgnoreCase("q")) {
                 break;
@@ -20,13 +24,13 @@ public class Main {
             System.out.print("ID del Vehículo: ");
             String idVehiculo = scanner.nextLine();
 
-            Vehiculo vehiculo = FabricaVehiculos.crearVehiculo(tipoVehiculo, idVehiculo);
+            Vehiculo vehiculo = fabrica.crearVehiculo(idVehiculo);
             sistemaAutobuses.agregarVehiculo(vehiculo);
             System.out.println("Vehículo agregado exitosamente");
             System.out.println();
         }
 
-        // Adding conductors with routes
+        // Agregar conductores con rutas
         while (true) {
             System.out.print("Nombre del Conductor (Ingrese 'q' para salir): ");
             String nombreConductor = scanner.nextLine();
@@ -57,6 +61,10 @@ public class Main {
             System.out.println("Conductor agregado exitosamente");
             System.out.println();
         }
+
+        sistemaAutobuses.asignarTareasAleatorias();
+        sistemaAutobuses.asignarTareas();
+        sistemaAutobuses.monitoreoEnTiempoReal();
 
         System.out.println("Lista de Vehículos:");
         sistemaAutobuses.imprimirVehiculos();

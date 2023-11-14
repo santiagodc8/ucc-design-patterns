@@ -1,8 +1,9 @@
 import java.util.Scanner;
+// Clase que representa una fábrica de vehículos y sensores
 
-class FabricaVehiculos {
-    public static Vehiculo crearVehiculo(String tipo, String id) {
-        Ruta rutaDefault = new RutaUrbana(); // You can change this to the desired default route
+class FabricaVehiculos implements AbstractFactory {
+    public Vehiculo crearVehiculo(String tipo, String id) {
+        Ruta rutaDefault = new RutaUrbana();
 
         if (tipo.equalsIgnoreCase("Autobus")) {
             return new Autobus(id, rutaDefault);
@@ -13,5 +14,15 @@ class FabricaVehiculos {
         } else {
             throw new IllegalArgumentException("Tipo de vehículo inválido: " + tipo);
         }
+    }
+
+    public Sensor crearSensor(String id, String type) {
+        return new Sensor(id, type);
+    }
+
+    @Override
+    public Vehiculo crearVehiculo(String id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'crearVehiculo'");
     }
 }

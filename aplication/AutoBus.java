@@ -1,3 +1,4 @@
+// Clase Autobus que extiende Vehiculo
 class Autobus extends Vehiculo {
     public Autobus(String id, Ruta ruta) {
         super(id, "Autobús", ruta);
