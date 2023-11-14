@@ -11,7 +11,7 @@ public class Main {
 
         // Adding vehicles
         while (true) {
-            System.out.print("Tipo de Vehículo (Autobús/Coche/Van) (Ingrese 'q' para salir): ");
+            System.out.print("Ingrese el tipo de Vehículo (Autobús/Coche/Van) (Ingrese 'q' para salir): ");
             String tipoVehiculo = scanner.nextLine();
             if (tipoVehiculo.equalsIgnoreCase("q")) {
                 break;
@@ -57,8 +57,6 @@ public class Main {
             System.out.println("Conductor agregado exitosamente");
             System.out.println();
         }
-
-        sistemaAutobuses.asignarRutas();
 
         System.out.println("Lista de Vehículos:");
         sistemaAutobuses.imprimirVehiculos();
