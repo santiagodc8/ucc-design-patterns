@@ -10,12 +10,12 @@ public class admin {
                                 try (Scanner leer_ruta = new Scanner(System.in)) {
                                         System.out.println("Flota de camiones");
                                         System.out.println(" ");
-                                        System.out.println("Bienvenido a la flota de camiones porfavor rellene los espaccios en blanco" +
-                                                "\nen su totalidad para poder immprimir las tareas de cada camion" +
+                                        System.out.println("Bienvenido a la flota de camiones por favor rellene los espacios en blanco" +
+                                                "\nen su totalidad para poder immprimir las tareas de cada vehiculo" +
                                                 "\n");
 
                                         System.out.println("--------------------------------------------------------------------------------------");
-                                        System.out.println("Digite el numero de vehiculos que quiere Ingresar : ");
+                                        System.out.println("Digite el numero 🔢 de vehiculos que quiere Ingresar 🚎 🚗 🚐 : ");
                                         int nv = leer.nextInt();
                                         System.out.println("--------------------------------------------------------------------------------------");
 
@@ -60,13 +60,13 @@ public class admin {
 
                                             // Arreglo Celular
 
-                                            System.out.print("Digite el celular de " + driver[i] + " = ");
+                                            System.out.print("Digite el 🔢 celular de " + driver[i] + " = ");
                                             cel[i] = leer_driver.next();
                                             System.out.println("");
 
                                             // Arreglo Id
 
-                                            System.out.print("Digite el numero de identidad  de " + driver[i] + " = ");
+                                            System.out.print("Digite el numero 🔢 de identidad  de " + driver[i] + " = ");
                                             id[i] = leer_driver.next();
                                             System.out.println("");
 
@@ -78,13 +78,13 @@ public class admin {
 
                                             // Arreglo Ubicacion actual
 
-                                            System.out.println("Digite su ubicacion actual del Vehiculo " + (i + 1) + " =");
+                                            System.out.println("Digite su ubicacion actual 📍 del Vehiculo " + (i + 1) + " =");
                                             ubicacion[i] = leer_ruta.next();
                                             System.out.println("");
 
                                             // Arreglo Ruta
 
-                                            System.out.print("Digite la ruta a la que se dirige el Vehiculo " + (i + 1) + " =");
+                                            System.out.print("Digite la ruta 📍 a la que se dirige el Vehiculo " + (i + 1) + " =");
                                             ruta[i] = leer_ruta.next();
                                             System.out.println("");
 
@@ -118,7 +118,7 @@ public class admin {
                                                 System.out.println(
                                                         "--------------------------------------------------------------------------------------");
                                                 System.out.println("\nDigite las caracteristicas de la tarea " + (j + 1) + " :");
-                                                System.out.println("\nDigite la tarea que necesiita: ");
+                                                System.out.println("\nDigite la tarea que necesita: ");
                                                 work[j] = leer_tarea.nextLine();
                                                 System.out.println(
                                                         "\n--------------------------------------------------------------------------------------");
